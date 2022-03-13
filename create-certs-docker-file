@@ -1,0 +1,9 @@
+FROM ubuntu:20.04
+
+RUN apt-get update
+RUN apt-get --yes install openssl
+RUN apt-get --yes install ca-certificates	
+
+COPY create-certs.sh /bin
+
+ENTRYPOINT ["bash", "/bin/create-certs.sh"]
